@@ -11,6 +11,11 @@ function getHostIP() {
     }
 }
 
+function processFilename(filename){
+    return filename.replace(/\s|(\.\.)|(\\)|(\/)/g, '');
+}
+
 module.exports = {
-    getHostIP
+    getHostIP,
+    processFilename
 };

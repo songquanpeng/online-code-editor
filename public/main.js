@@ -32,14 +32,12 @@ function submit() {
         content: editor.getValue(),
         filename: currentFilename
     }, function (data, status) {
-        console.log(status);
         loadList();
     });
 }
 
 function clearEditor() {
     editor.setValue("");
-    console.log(editor.getValue())
 }
 
 function deleteFile() {
@@ -48,7 +46,6 @@ function deleteFile() {
         url: `/${currentFilename}`,
         type: "DELETE",
         success: function (result) {
-            console.log(result);
             clearEditor();
             setCurrentFilename("untitled");
             loadList();

@@ -2,6 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const fs = require('fs');
+const processFilename = require("../util").processFilename;
 const dataPath = process.cwd() + '/public/data/';
 
 router.get('/', function (req, res) {
@@ -11,7 +12,7 @@ router.get('/', function (req, res) {
 // Create & update file.
 router.post('/', function (req, res) {
     let content = req.body.content;
-    let filename = req.body.filename;
+    let filename = processFilename(req.body.filename);
     let filePath = dataPath + filename;
     fs.writeFile(filePath, content, err => {
     	res.json(err);
@@ -27,7 +28,7 @@ router.get("/list", function (req, res) {
 
 // Get target file.
 router.get('/:filename', function (req, res) {
-    const targetFile = dataPath + req.params.filename;
+    const targetFile = dataPath + processFilename(req.params.filename);
     fs.readFile(targetFile, 'utf-8', function (error, data) {
         if (error) {
             console.error(error);
@@ -40,7 +41,7 @@ router.get('/:filename', function (req, res) {
 
 // Delete target file.
 router.delete('/:filename', function (req, res) {
-    const targetFile = dataPath + req.params.filename;
+    const targetFile = dataPath + processFilename(req.params.filename);
     fs.unlink(targetFile, function (error) {
         if (error) {
             console.error(error);
