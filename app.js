@@ -38,6 +38,6 @@ app.use(function (err, req, res, next) {
 });
 
 const server = http.createServer(app);
-let port = 3000;
+let port = process.env.PORT || 3000;
 server.listen(port);
 console.log(`Server address: http://${getHostIP()}:${port}`);
