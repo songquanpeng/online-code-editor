@@ -1,6 +1,3 @@
-﻿## Notice
-+ This is a toy project that attemps to provide online editing service
-+ The project urgently needs refactoring
-
-## Screenshot
-![online_code_editor_screenshot](annex/online_code_editor_screenshot.png)
+﻿## Online Code Editor
+1. A simple ~~and interesting~~ project that help you get started with Express.js.
+2. Design for Node.js beginner.

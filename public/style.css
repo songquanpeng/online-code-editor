@@ -1,0 +1,33 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.panel {
+    width: 100%;
+    height: 2em !important;
+    background-color: rgb(247, 247, 247);
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid rgb(221, 221, 221);
+}
+
+.button, .input {
+    font-size: 1em;
+    font-family: Consolas, monospace;
+}
+
+.editor {
+    width: 100%;
+    height: 100%;
+}
+
+.CodeMirror {
+    font-size: 18px;
+    font-family: Consolas, monospace !important;
+    width: 100%;
+    height: 100% !important;
+}

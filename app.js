@@ -32,10 +32,8 @@ app.use(function (req, res, next) {
 
 app.use(function (err, req, res, next) {
     res.status(err.status || 500);
-    res.render('error', {
-        message: err.message,
-        error: {}
-    });
+    console.error(err);
+    res.json(err);
 });
 
 const server = http.createServer(app);
