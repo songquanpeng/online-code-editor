@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Online Code Editor</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/codemirror@5.52.0/lib/codemirror.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/codemirror@5.52.2/theme/solarized.css">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/codemirror@5.52.0/lib/codemirror.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/codemirror@5.52.2/mode/javascript/javascript.js"></script>
     <link rel="stylesheet" href="./style.css">
     <script src="./main.js"></script>
 </head>
@@ -15,6 +17,7 @@
 <div class="panel">
     <select class="button" id="fileSelect" onchange="loadFile()"></select>
     <input class="input" id="filename" type="text" name="filename" placeholder="input filename" required/>
+    <button class="button" onclick="deleteFile()">Delete</button>
     <button class="button" onclick="clearEditor()">Clear</button>
     <button class="button" onclick="submit()">Submit</button>
 </div>

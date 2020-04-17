@@ -9,7 +9,7 @@ html, body {
 .panel {
     width: 100%;
     height: 2em !important;
-    background-color: rgb(247, 247, 247);
+    background-color: rgb(238, 232 ,213);
     display: flex;
     justify-content: center;
     border-bottom: 1px solid rgb(221, 221, 221);
@@ -18,6 +18,13 @@ html, body {
 .button, .input {
     font-size: 1em;
     font-family: Consolas, monospace;
+    background-color: rgb(238, 232 ,213);
+    color: #666;
+    border: 1px solid rgb(221, 221, 221);
+}
+
+.button {
+    cursor: pointer;
 }
 
 .editor {
@@ -27,7 +34,7 @@ html, body {
 
 .CodeMirror {
     font-size: 18px;
-    font-family: Consolas, monospace !important;
+    font-family: Consolas, monospace;
     width: 100%;
     height: 100% !important;
 }

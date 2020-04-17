@@ -38,4 +38,17 @@ router.get('/:filename', function (req, res) {
     })
 });
 
+// Delete target file.
+router.delete('/:filename', function (req, res) {
+    const targetFile = dataPath + req.params.filename;
+    fs.unlink(targetFile, function (error) {
+        if (error) {
+            console.error(error);
+            res.send(error.message);
+        } else {
+            res.sendStatus(200);
+        }
+    })
+});
+
 module.exports = router;

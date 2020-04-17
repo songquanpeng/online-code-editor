@@ -9,6 +9,7 @@ function setCurrentFilename(filename) {
 function loadList() {
     $.get("/list", function (data, status) {
         if (status === "success") {
+            $("#fileSelect").find('option').remove();
             data.forEach(function (filename) {
                 $("#fileSelect").append(`<option value='${filename}'>${filename}</option>`);
             })
@@ -26,17 +27,33 @@ function loadFile() {
 }
 
 function submit() {
+    setCurrentFilename($('#filename').val());
     $.post('/', {
         content: editor.getValue(),
         filename: currentFilename
     }, function (data, status) {
         console.log(status);
+        loadList();
     });
 }
 
 function clearEditor() {
     editor.setValue("");
     console.log(editor.getValue())
+}
+
+function deleteFile() {
+    setCurrentFilename($('#filename').val());
+    $.ajax({
+        url: `/${currentFilename}`,
+        type: "DELETE",
+        success: function (result) {
+            console.log(result);
+            clearEditor();
+            setCurrentFilename("untitled");
+            loadList();
+        }
+    });
 }
 
 function printInfo() {
@@ -47,7 +64,12 @@ function printInfo() {
 $(document).ready(function () {
     printInfo();
     editor = CodeMirror.fromTextArea(document.getElementById('editor'), {
-        lineNumbers: true
+        lineNumbers: true,
+        mode: "javascript",
+        indentWithTabs: true,
+        smartIndent: true,
+        matchBrackets: true,
+        theme: "solarized light"
     });
     loadList();
     setCurrentFilename("untitled");

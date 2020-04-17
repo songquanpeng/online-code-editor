@@ -8,6 +8,7 @@ const bodyParser = require('body-parser');
 const routes = require('./routes/index');
 const compression = require('compression');
 const serveStatic = require('serve-static');
+const getHostIP = require('./util').getHostIP;
 const app = express();
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -37,4 +38,6 @@ app.use(function (err, req, res, next) {
 });
 
 const server = http.createServer(app);
-server.listen(process.env.PORT || 3000);
+let port = 3000;
+server.listen(port);
+console.log(`Server address: http://${getHostIP()}:${port}`);
