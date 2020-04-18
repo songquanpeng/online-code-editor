@@ -13,7 +13,7 @@ function loadList() {
             data.forEach(function (filename) {
                 $("#fileSelect").append(`<option value='${filename}'>${filename}</option>`);
             });
-            if(currentFilename==="") {
+            if(currentFilename==="" && data.length !== 0) {
                 setCurrentFilename($("#fileSelect option:first").val());
                 loadFile();
             }
@@ -51,10 +51,19 @@ function deleteFile() {
         type: "DELETE",
         success: function (result) {
             clearEditor();
-            setCurrentFilename("untitled");
+            setCurrentFilename("");
             loadList();
+        },
+        error: function (result) {
+            editor.setValue(JSON.stringify(result));
         }
     });
+}
+
+function newFile() {
+    let now = new Date();
+    setCurrentFilename(now.getTime().toString());
+    clearEditor();
 }
 
 function printInfo() {

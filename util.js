@@ -12,7 +12,7 @@ function getHostIP() {
 }
 
 function processFilename(filename){
-    return filename.replace(/\s|(\.\.)|(\\)|(\/)/g, '');
+    return filename.replace(/(\.\.)|(\\)|(\/)/g, '');
 }
 
 module.exports = {
