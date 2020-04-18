@@ -12,7 +12,11 @@ function loadList() {
             $("#fileSelect").find('option').remove();
             data.forEach(function (filename) {
                 $("#fileSelect").append(`<option value='${filename}'>${filename}</option>`);
-            })
+            });
+            if(currentFilename==="") {
+                setCurrentFilename($("#fileSelect option:first").val());
+                loadFile();
+            }
         }
     });
 }
@@ -69,5 +73,4 @@ $(document).ready(function () {
         theme: "solarized light"
     });
     loadList();
-    setCurrentFilename("untitled");
 });
