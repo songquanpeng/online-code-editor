@@ -9,6 +9,8 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/codemirror@5.52.0/lib/codemirror.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/codemirror@5.52.2/mode/javascript/javascript.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link rel="stylesheet" href="./style.css">
     <script src="./main.js"></script>
 </head>
@@ -18,7 +20,7 @@
     <select class="button" id="fileSelect" onchange="loadFile()"></select>
     <input class="input" id="filename" type="text" name="filename" placeholder="input filename" required/>
     <button class="button" onclick="deleteFile()">Delete</button>
-    <button class="button" onclick="clearEditor()">Clear</button>
+    <button class="button" onclick="clearEditor(true)">Clear</button>
     <button class="button" onclick="newFile()">New</button>
     <button class="button" onclick="submit()">Submit</button>
 </div>

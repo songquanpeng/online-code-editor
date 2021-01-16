@@ -37,11 +37,15 @@ function submit() {
         filename: currentFilename
     }, function (data, status) {
         loadList();
+        toast("File updated.")
     });
 }
 
-function clearEditor() {
+function clearEditor(showToast) {
     editor.setValue("");
+    if (showToast) {
+        toast("Editor cleared.")
+    }
 }
 
 function deleteFile() {
@@ -50,9 +54,10 @@ function deleteFile() {
         url: `/${currentFilename}`,
         type: "DELETE",
         success: function (result) {
-            clearEditor();
+            clearEditor(false);
             setCurrentFilename("");
             loadList();
+            toast("File deleted.")
         },
         error: function (result) {
             editor.setValue(JSON.stringify(result));
@@ -62,8 +67,22 @@ function deleteFile() {
 
 function newFile() {
     let now = new Date();
-    setCurrentFilename("new_file_" + now.getTime().toString().slice(7));
+    let filename = "new_file_" + now.getTime().toString().slice(7);
+    setCurrentFilename(filename);
     clearEditor();
+    toast(`File created: ${filename}.`)
+}
+
+function toast(message) {
+    Toastify({
+        text: message,
+        duration: 3000,
+        close: false,
+        gravity: "top",
+        position: "right",
+        backgroundColor: "#666",
+        stopOnFocus: true,
+    }).showToast();
 }
 
 function printInfo() {
@@ -82,4 +101,5 @@ $(document).ready(function () {
         theme: "solarized light"
     });
     loadList();
+    toast("Loading done.")
 });
