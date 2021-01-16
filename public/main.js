@@ -62,7 +62,7 @@ function deleteFile() {
 
 function newFile() {
     let now = new Date();
-    setCurrentFilename(now.getTime().toString());
+    setCurrentFilename("new_file_" + now.getTime().toString().slice(7));
     clearEditor();
 }
 

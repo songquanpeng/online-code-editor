@@ -2,7 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const fs = require('fs');
-const processFilename = require("../util").processFilename;
+const processFilename = require('../util').processFilename;
 const dataPath = process.cwd() + '/public/data/';
 
 router.get('/', function (req, res) {

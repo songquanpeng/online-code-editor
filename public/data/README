@@ -1,1 +1,9 @@
-Please star https://github.com/songquanpeng/online-code-editor if you think its useful to you.
+## 使用说明
+1. 点击 New 新建一个文件，左侧输入框可以编辑文件名，在下侧编辑文本，之后点击 Submit 提交到服务器，最左侧的下拉框会出现你刚刚新建的文件。
+2. 点击下拉框选择文件进行编辑，之后点击 Summit 将内容更新至服务器。
+3. 点击 Delete 删除当前文件。
+4. 点击 Clear 清除当前文件内容。
+
+## 注意
+1. 有疑问请提 issue，我会尽量回复。
+2. 如果该项目帮到了你，不要忘了在 Github 上 star 该项目（https://github.com/songquanpeng/online-code-editor），谢谢。
